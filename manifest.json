@@ -2,13 +2,12 @@
   "manifest_version": 2,
   "name": "feedly_open_background_tab",
   "version": "2.0",
- 
   "description": "open page in background tab by setting shortcut key.",
-  
   "applications": {
-      "gecko": {
-        "id": "otfmcmrf2@gmail.com",
-          "strict_min_version": "57.0"      }
+    "gecko": {
+      "id": "otfmcmrf2@gmail.com",
+      "strict_min_version": "57.0"
+    }
   },
   "icons": {
     "48": "icons/icon48.png"
@@ -18,14 +17,20 @@
   ],
   "content_scripts": [
     {
-      "matches": ["*://feedly.com/*"],
-      "js": ["feedly_background_tab.js"]
+      "matches": [
+        "*://feedly.com/*"
+      ],
+      "js": [
+        "feedly_background_tab.js"
+      ]
     }
   ],
- "background": {
-    "scripts": ["background.js"]
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
   },
- "options_ui": {
+  "options_ui": {
     "page": "options.html"
   }
 }
