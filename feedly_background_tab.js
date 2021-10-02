@@ -11,17 +11,17 @@
 		'.list-entries .selected a.visitWebsiteButton',
 		'a.visitWebsiteButton',
 		'.entry.selected a.title',
-		'.entry--selected a.entry__title'	 // add feedback		
+		'.entry--selected a.entry__title'	 // add feedback
 	]
 
 	var App = function () {
-		var _triggerCharCode = "KeyH"  // default is 'h'
+		var _triggerCharCode = "h"  // default is 'h'
 		this.init = function () {
 			// if setting another shortcut key,,, change trigger
 			chrome.storage.local.get("shortcut", items => {
 				if (typeof items.shortcut === "undefined") {
 				} else {
-					_triggerCharCode = "Key" + items.shortcut.toUpperCase();
+					_triggerCharCode = items.shortcut;
 					// console.log("change key by setting")
 					// console.log(_triggerCharCode)
 				}
@@ -31,7 +31,7 @@
 		this.keyDownHandler = function (e) {
 			var tag = e.target.tagName.toLowerCase()
 			if (tag != 'input' && tag != 'textarea') {
-				if (e.code == _triggerCharCode) {
+				if (e.key == _triggerCharCode) {
 					var url
 					for (var x in selectors) {			// for Article mode
 						url = document.querySelector(selectors[x])
