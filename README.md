@@ -2,6 +2,9 @@
 firefox addon for feedly
 
 
+Ver3.1
+ Fixed  non-alphanumeric characters is not available bug.change to use  KeyboardEvent.key from KeyboardEvent.code,  
+ 
 Ver3.0
  Fixed deprecated keypress event to keydown event. 
  

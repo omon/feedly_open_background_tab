@@ -21,17 +21,19 @@
 			chrome.storage.local.get("shortcut", items => {
 				if (typeof items.shortcut === "undefined") {
 				} else {
-					_triggerCharCode = "Key" + items.shortcut.toUpperCase();
-					// console.log("change key by setting")
-					// console.log(_triggerCharCode)
+					_triggerCharCode = items.shortcut.toUpperCase();
 				}
 			})
 		}
 
 		this.keyDownHandler = function (e) {
 			var tag = e.target.tagName.toLowerCase()
+			var key = e.key.toUpperCase();
+			// console.log(" e.key = " + e.key);
+			// console.log(" key = " + key);
+			// console.log(_triggerCharCode);
 			if (tag != 'input' && tag != 'textarea') {
-				if (e.code == _triggerCharCode) {
+				if (key == _triggerCharCode) {
 					var url
 					for (var x in selectors) {			// for Article mode
 						url = document.querySelector(selectors[x])
