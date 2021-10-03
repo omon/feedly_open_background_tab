@@ -11,29 +11,29 @@
 		'.list-entries .selected a.visitWebsiteButton',
 		'a.visitWebsiteButton',
 		'.entry.selected a.title',
-		'.entry--selected a.entry__title'	 // add feedback		
+		'.entry--selected a.entry__title'	 // add feedback
 	]
 
 	var App = function () {
-		var _triggerCharCode = "KeyH"  // default is 'h'
+		var _triggerCharCode = "h"  // default is 'h'
 		this.init = function () {
 			// if setting another shortcut key,,, change trigger
 			chrome.storage.local.get("shortcut", items => {
 				if (typeof items.shortcut === "undefined") {
 				} else {
-					_triggerCharCode = items.shortcut.toUpperCase();
+					_triggerCharCode = items.shortcut;
+					// console.log("change key by setting")
+					// console.log(_triggerCharCode)
 				}
 			})
 		}
 
 		this.keyDownHandler = function (e) {
 			var tag = e.target.tagName.toLowerCase()
-			var key = e.key.toUpperCase();
 			// console.log(" e.key = " + e.key);
-			// console.log(" key = " + key);
 			// console.log(_triggerCharCode);
 			if (tag != 'input' && tag != 'textarea') {
-				if (key == _triggerCharCode) {
+				if (e.key == _triggerCharCode) {
 					var url
 					for (var x in selectors) {			// for Article mode
 						url = document.querySelector(selectors[x])
