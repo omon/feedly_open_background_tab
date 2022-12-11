@@ -1,8 +1,10 @@
 (function () {
 	// for article mode.
-	var article_mode_selector = ".inlineFrame--selected";
-	var entry_title_selector = ".entryTitle";
+	var article_mode_selector = ".Article--selected";
+	var entry_title_selector = ".Article__title";
 	var floating_mode_selector = ".floatingEntryContent";
+	var article_mode_selector2 = ".InlineArticle";
+	
 
 	var selectors = [
 		article_mode_selector,
@@ -11,7 +13,7 @@
 		'.list-entries .selected a.visitWebsiteButton',
 		'a.visitWebsiteButton',
 		'.entry.selected a.title',
-		'.entry--selected a.entry__title'	 // add feedback
+		'.entry--selected a.entry__title',	 // add feedback
 	]
 
 	var App = function () {
@@ -22,8 +24,8 @@
 				if (typeof items.shortcut === "undefined") {
 				} else {
 					_triggerCharCode = items.shortcut;
-					// console.log("change key by setting")
-					// console.log(_triggerCharCode)
+					console.log("change key by setting")
+					console.log(_triggerCharCode)
 				}
 			})
 		}
@@ -36,16 +38,23 @@
 				if (e.key == _triggerCharCode) {
 					var url
 					for (var x in selectors) {			// for Article mode
+						console.log(document)
 						url = document.querySelector(selectors[x])
+						// console.log("url is " + url)
+						// console.log("selectors[x] is ")
+						// console.log(selectors[x])
 						if (selectors[x] == article_mode_selector) {
 							// console.log("catch selectors from: " + selectors[x])
 							var isFloting = document.querySelector(floating_mode_selector)
 							if (isFloting) {
 								// console.log("floating mode")
+								// console.log(isFloting)
 								url = isFloting.querySelector(entry_title_selector)
-							} else {
+							}
+							var isArticle = document.querySelector(article_mode_selector2)
+							if(isArticle) {
 								// console.log("article mode")
-								url = url.querySelector(entry_title_selector)
+								url = isArticle.querySelector(entry_title_selector)
 							}
 							// console.log("url is " + url)
 						} else {
