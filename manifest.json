@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "feedly_open_background_tab",
-  "version": "3.1",
+  "version": "4.0",
   "description": "open page in background tab by setting shortcut key.",
   "applications": {
     "gecko": {
