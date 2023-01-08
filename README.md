@@ -2,6 +2,12 @@
 firefox addon for feedly
 
 
+Ver4.2
+ add user feedback, for just title shown. 
+
+Ver4.1
+ article mode is work on my computer. 
+
 Ver4.0
  Fixed  change article html tag for feedly html structure changed. but article mode is clound not run. sorry  
 
